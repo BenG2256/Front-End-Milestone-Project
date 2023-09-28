@@ -1,0 +1,36 @@
+body {
+    background-color: blue;
+    margin: 0;
+    padding: 0;
+}
+
+.mainHeader {
+    text-align: center;
+    padding: 10px 20px; /* Adjust the padding to control the border size */
+    border: 2px solid #000; /* Adjust border properties as needed */
+    color: gold;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    min-height: 50vh;
+    padding: 5px;
+}
+
+.start {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+button {
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+
+
