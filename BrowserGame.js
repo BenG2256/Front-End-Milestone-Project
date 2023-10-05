@@ -19,9 +19,18 @@ const questions = [
         question: 'Who wrote the play "Romeo and Juliet"?',
         choices: ['William Shakespeare', 'Charles Dickens', 'Jane Austen', 'George Orwell'],
         correctAnswer: 'William Shakespeare'
-    }
+    },
+    {
+        question: 'What is the Capital of North Carolina?',
+        choices: ['Raleigh', 'Charlotte', 'Duke', 'Tallahassee'],
+        correctAnswer: 'Raleigh'
+    }, 
+    {
+        question: 'Who is the best game show host of all time?',
+        choices: ['Alex Trebek', 'Donald Glover', 'Oprah', 'Ellen'],
+        correctAnswer: 'Alex Trebek'
+    },
 ];
-
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -43,6 +52,7 @@ function checkAnswer(selectedChoice) {
     const currentQuestion = questions[currentQuestionIndex];
     if (selectedChoice === currentQuestion.correctAnswer) {
         score++;
+        document.getElementById('score').innerHTML = 'Score:' + score;
     }
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
