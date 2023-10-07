@@ -25,11 +25,16 @@ h1 {
 ul {
     list-style-type: none;
     padding: 0;
+   
 }
 
 li {
     margin: 10px 0;
     cursor: pointer;
+}
+
+li:hover {
+     font-size: large;
 }
 
 button {
@@ -41,6 +46,10 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+button:hover {
+    font-size: large;
 }
 
 #score {

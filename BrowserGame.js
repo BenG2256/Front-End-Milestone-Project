@@ -1,10 +1,11 @@
-const questionContainer = document.getElementById('question-container');
-const questionText = document.getElementById('question');
-const choicesList = document.getElementById('choices');
-const scoreText = document.getElementById('score');
-const nextButton = document.getElementById('next-button');
+let questionContainer = document.getElementById('question-container');
+let questionText = document.getElementById('question');
+let choicesList = document.getElementById('choices');
+let scoreText = document.getElementById('score');
+let nextButton = document.getElementById('next-button');
+let endButton = document.getElementById('end-game')
 
-const questions = [
+let questions = [
     {
         question: 'What is the capital of France?',
         choices: ['London', 'Berlin', 'Paris', 'Madrid'],
@@ -31,11 +32,11 @@ const questions = [
         correctAnswer: 'Alex Trebek'
     },
 ];
-let currentQuestionIndex = 0;
+let index = 0;
 let score = 0;
 
 function displayQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = questions[index];
     questionText.textContent = currentQuestion.question;
     
     choicesList.innerHTML = '';
@@ -49,13 +50,13 @@ function displayQuestion() {
 }
 
 function checkAnswer(selectedChoice) {
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = questions[index];
     if (selectedChoice === currentQuestion.correctAnswer) {
         score++;
         document.getElementById('score').innerHTML = 'Score:' + score;
     }
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
+    index++;
+    if (index < questions.length) {
         displayQuestion();
     } else {
         endGame();
@@ -69,11 +70,27 @@ function endGame() {
 }
 
 nextButton.addEventListener('click', () => {
-    if (currentQuestionIndex < questions.length) {
+    if (index < questions.length) {
+        index++;
         displayQuestion();
     } else {
         endGame();
     }
 });
+
+endButton.addEventListener('click', () => {
+    if (index === questions.length) {
+        index = 0;
+        score = 0;
+        displayQuestion();
+        questionContainer.style.display = 'block';
+        nextButton.style.display = 'block';
+        scoreText.textContent = '';
+    } else {
+        endGame();
+    }
+});
+
+
 
 displayQuestion();
