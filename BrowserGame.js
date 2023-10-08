@@ -33,6 +33,16 @@ let questions = [
         choices: ['Alex Trebek', 'Donald Glover', 'Oprah', 'Ellen'],
         correctAnswer: 'Alex Trebek'
     },
+    {
+        question: 'Who was the first woman to fly solo across the Atlantic Ocean?',
+        choices: ['Dale Earnhardt', 'Cleopatra', 'Amelia Earhart', 'Queen Elizabeth'],
+        correctAnswer: 'Amelia Earhart' 
+    },
+    {
+        question: '"Let them eat Cake" is a famous quote tied to which historical figure?',
+        choices: ['Napoleon', 'Marie Antoinette', 'Julius Ceasar', 'Lady Jane Grey'],
+        correctAnswer: 'Marie Antoinette'
+    }
 ];
 let index = 0;
 let score = 0;
@@ -58,6 +68,7 @@ function checkAnswer(selectedChoice) {
         score++;
         questionTally++;
         document.getElementById('score').innerHTML = 'Score:' + score;
+        console.log(score);
     }
     index++;
     if (index < questions.length) {
@@ -83,6 +94,13 @@ nextButton.addEventListener('click', () => {
 });
 
 endButton.addEventListener('click', () => {
+    let correctPercent = (score / questions.length) * 100;
+    if (correctPercent >= 50) {
+        winSound.play();
+    } else {
+        loseSound.play();
+    }
+
     if (index === questions.length) {
         index = 0;
         score = 0;
@@ -95,13 +113,4 @@ endButton.addEventListener('click', () => {
     }
 });
 
-endButton.addEventListener('click', () => {
-    if (score >= 3) {
-        winSound.play();
-    } else {
-        loseSound.play();
-    }
-})
-
-console.log(score);
 displayQuestion();
