@@ -4,6 +4,8 @@ let choicesList = document.getElementById('choices');
 let scoreText = document.getElementById('score');
 let nextButton = document.getElementById('next-button');
 let endButton = document.getElementById('end-game')
+let winSound = new Audio('winSound.mp3')
+let loseSound = new Audio('loseSound.mp3')
 
 let questions = [
     {
@@ -34,6 +36,7 @@ let questions = [
 ];
 let index = 0;
 let score = 0;
+let questionTally = 0;
 
 function displayQuestion() {
     const currentQuestion = questions[index];
@@ -53,6 +56,7 @@ function checkAnswer(selectedChoice) {
     const currentQuestion = questions[index];
     if (selectedChoice === currentQuestion.correctAnswer) {
         score++;
+        questionTally++;
         document.getElementById('score').innerHTML = 'Score:' + score;
     }
     index++;
@@ -91,6 +95,13 @@ endButton.addEventListener('click', () => {
     }
 });
 
+endButton.addEventListener('click', () => {
+    if (score >= 3) {
+        winSound.play();
+    } else {
+        loseSound.play();
+    }
+})
 
-
+console.log(score);
 displayQuestion();
