@@ -52,7 +52,7 @@ let questions = [
     {
         question: 'Who painted the Mona Lisa?',
         choices: ['Michelangelo', 'Mozart', 'Leonardo DeCaprio', 'Leonardo da Vinci'],
-        correctAnswer: 'Alex Trebek'
+        correctAnswer: 'Leonardo da Vinci'
     },
     {
         question: 'How many bones do sharks have?',
@@ -63,7 +63,7 @@ let questions = [
         question: 'Where is the Leaning Tower of Pisa located?',
         choices: ['France', 'Italy', 'Greece', 'Napal'],
         correctAnswer: 'Italy'
-    }
+    },
 ];
 let index = 0;
 let score = 0;
