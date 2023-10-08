@@ -59,6 +59,11 @@ let questions = [
         choices: ['123', '0', '200', '34'],
         correctAnswer: '0' 
     },
+    {
+        question: 'Where is the Leaning Tower of Pisa located?',
+        choices: ['France', 'Italy', 'Greece', 'Napal'],
+        correctAnswer: 'Italy'
+    }
 ];
 let index = 0;
 let score = 0;
