@@ -7,6 +7,12 @@ let endButton = document.getElementById('end-game')
 let winSound = new Audio('winSound.mp3')
 let loseSound = new Audio('loseSound.mp3')
 
+function audioWarn() {
+    alert("The following page will play a sound depending on the outcome of the game (win/lose). Caution is advised to those easily startled.");
+}
+
+audioWarn();
+
 let questions = [
     {
         question: 'What is the capital of France?',
@@ -42,7 +48,17 @@ let questions = [
         question: '"Let them eat Cake" is a famous quote tied to which historical figure?',
         choices: ['Napoleon', 'Marie Antoinette', 'Julius Ceasar', 'Lady Jane Grey'],
         correctAnswer: 'Marie Antoinette'
-    }
+    },
+    {
+        question: 'Who painted the Mona Lisa?',
+        choices: ['Michelangelo', 'Mozart', 'Leonardo DeCaprio', 'Leonardo da Vinci'],
+        correctAnswer: 'Alex Trebek'
+    },
+    {
+        question: 'How many bones do sharks have?',
+        choices: ['123', '0', '200', '34'],
+        correctAnswer: '0' 
+    },
 ];
 let index = 0;
 let score = 0;
