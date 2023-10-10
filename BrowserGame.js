@@ -1,14 +1,13 @@
-// settings variables for HTML elements
+// setting variables for HTML elements
 let questionContainer = document.getElementById("question-container");
 let questionText = document.getElementById("question");
 let choicesList = document.getElementById("choices");
 let scoreText = document.getElementById("score");
 let nextButton = document.getElementById("next-button");
 let endButton = document.getElementById("end-game");
-
+//Audio elements for win / lose scenario
 let winSound = new Audio("winSound.mp3");
 let loseSound = new Audio("loseSound.mp3");
-
 
 // function audioWarn, displays a pop-up letting the user know a sound will play
 function audioWarn() {
@@ -20,7 +19,7 @@ function audioWarn() {
 // audioWarn function call
 audioWarn();
 
-// questions array, holds all triva questions
+// questions array, holds all triva questions, choices, hints, and correct answers
 let questions = [
   {
     question: "What is the capital of France?",
@@ -65,7 +64,9 @@ let questions = [
       "Amelia Earhart",
       "Queen Elizabeth",
     ],
-    hint: ["This pilot mysteriously disapeared on their voyage and has never been found"],
+    hint: [
+      "This pilot mysteriously disapeared on their voyage and has never been found",
+    ],
     correctAnswer: "Amelia Earhart",
   },
   {
@@ -128,22 +129,18 @@ function displayQuestion() {
     choicesList.appendChild(listItem);
   });
 
-  // Get the hint button and hint text elements
+  // get the hint button and hint text elements
   const hintButton = document.getElementById("hint");
   const hintText = document.getElementById("hint-text");
 
-  // Clear the hint text when displaying a new question
+  // clear the hint text when displaying a new question
   hintText.textContent = "";
 
-  // Add a click event listener to show the hint for the current question
+  // add an event listener to show the hint for the current question
   hintButton.addEventListener("click", () => {
     hintText.textContent = "Hint: " + currentQuestion.hint;
   });
 }
-
-
-
-
 
 // checkAnswer function, checks input vs. correct answer and increments score & questionTally variables and displays score on screen.
 function checkAnswer(selectedChoice) {
@@ -156,12 +153,11 @@ function checkAnswer(selectedChoice) {
     console.log("score =" + score); //console log to ensure score is being properly kept
   }
   //if / else statement, determines if there are any questions left, if so next question is displayed.
-  if (index < questions.length) { 
+  if (index < questions.length) {
     displayQuestion();
   } else {
     endGame();
   }
- 
 }
 // endGame function, removes next button and question container, then displays final score.
 function endGame() {
@@ -170,7 +166,7 @@ function endGame() {
   scoreText.textContent = `Final Score: ${score} out of ${questions.length}`;
 }
 
-// if/else statment, allows the nextButton to be functional.
+// next-button event lisenter. if/else statment, allows the nextButton to be functional.
 nextButton.addEventListener("click", () => {
   if (index < questions.length) {
     index++;
@@ -180,9 +176,9 @@ nextButton.addEventListener("click", () => {
   }
 });
 
-
-
+//end-button event listener
 endButton.addEventListener("click", () => {
+  // score percentage if/else statement, determines which audio element to play.
   let correctPercent = (score / questions.length) * 100;
   if (correctPercent >= 50) {
     winSound.play();
@@ -201,5 +197,5 @@ endButton.addEventListener("click", () => {
     endGame();
   }
 });
-
+//function call to displayQuestion function
 displayQuestion();
