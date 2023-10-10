@@ -1,5 +1,9 @@
 # Front-End-Milestone-Project
 
+title: Front-End-Milestone-Project-Trivia-Game
+
+description: 
+
 This is the first of 3 Milestone projects as a part of the North Carolina State Software Development Bootcamp program. The objectives of the project are to create a functional
 browser game using HTML, CSS, and JavaScript. 
 
