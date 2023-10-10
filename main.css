@@ -1,10 +1,11 @@
+/* body styles */
 body {
   font-family: Arial, sans-serif;
   background-color: blue;
   margin: 0;
   padding: 0;
 }
-
+/* main container styles */
 .container {
   background-color: goldenrod;
   max-width: 500px;
@@ -13,29 +14,29 @@ body {
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
-
+/* h1 "Trivia Game" styles */
 h1 {
   text-align: center;
 }
-
+/* styles for question text */
 #question {
   font-size: 24px;
 }
-
+/* choices ul styles */
 ul {
   list-style-type: none;
   padding: 0;
 }
-
+/* choices styles */
 li {
   margin: 10px 0;
   cursor: pointer;
 }
-
+/* choices on hover style, makes the text pop */
 li:hover {
   font-size: large;
 }
-
+/* styles for all buttons */
 button {
   display: block;
   margin: 10px auto;
@@ -46,11 +47,11 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
+/*styles for all buttons on hover, makes the buttons pop*/
 button:hover {
   font-size: large;
 }
-
+/*styles for score text*/
 #score {
   text-align: center;
   font-size: 18px;

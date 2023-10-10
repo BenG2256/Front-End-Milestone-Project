@@ -135,7 +135,6 @@ function displayQuestion() {
 
   // clear the hint text when displaying a new question
   hintText.textContent = "";
-
   // add an event listener to show the hint for the current question
   hintButton.addEventListener("click", () => {
     hintText.textContent = "Hint: " + currentQuestion.hint;
